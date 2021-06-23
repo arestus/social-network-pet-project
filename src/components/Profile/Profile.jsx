@@ -1,4 +1,5 @@
 import React from "react";
+import MyPosts from "./MyPosts/MyPosts";
 import s from "./Profile.module.css";
 
 const Profile = () => {
@@ -11,18 +12,8 @@ const Profile = () => {
           alt="funny cat with remote controller"
         />
       </div>
-      <div>
-        ava + description
-        <img src="" />
-      </div>
-      <div>
-        My posts
-        <div className={s.posts}>New post</div>
-        <div>
-          <div className={s.item}>Post 1</div>
-          <div className={s.item}>Post 2</div>
-        </div>
-      </div>
+      <div>ava + description</div>
+      <MyPosts />
     </div>
   );
 };
