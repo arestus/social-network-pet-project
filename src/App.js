@@ -7,15 +7,16 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import Settings from "./components/Settings/Settings";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
-import {BrowserRouter, Route} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 
-const App = ({state}) => {
 
-    const {profilePage: {posts}, dialogsPage: {messages, dialogs}, sidebar: {friends}} = state
+const App = (props) => {
+
+    const {addNewPost} = props
+    const {profilePage: {posts}, dialogsPage: {messages, dialogs}, sidebar: {friends}} = props.state
 
 
     return (
-        <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
                 <Navbar friends={friends}/>
@@ -26,10 +27,9 @@ const App = ({state}) => {
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route exact path='/dialogs' render={() => <Dialogs dialogs={dialogs} messages={messages}/>}/>
-                    <Route path='/profile' render={() => <Profile posts={posts}/>}/>
+                    <Route path='/profile' render={() => <Profile posts={posts} addNewPost={addNewPost}/>}/>
                 </div>
             </div>
-        </BrowserRouter>
     );
 };
 
