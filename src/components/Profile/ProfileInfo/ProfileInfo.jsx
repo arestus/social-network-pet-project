@@ -8,7 +8,7 @@ const ProfileInfo = () => {
             <div>
                 <img
                     width="100%"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUhTwG1pAsM7aVwK9UFTawSwxKur9m6SlRRQ&usqp=CAU"
+                    src="https://www.next-t.co.kr/public/uploads/7b7f7e2138e29e598cd0cdf2c85ea08d.jpg"
                     alt="funny cat with remote controller"
                 />
             </div>
