@@ -10,7 +10,8 @@ const state = {
             {id: 5, message: 'some of them', likes: 44},
             {id: 6, message: 'good', likes: 111},
             {id: 7, message: 'got it', likes: 1111}
-        ]
+        ],
+        newPostText: 'it-kamasutra.com'
     },
     dialogsPage: {
         messages: [
@@ -22,6 +23,7 @@ const state = {
             {id: 6, message: 'good'},
             {id: 7, message: 'got it'}
         ],
+        newMessageText: 'Write here something to start',
         dialogs: [
             {id: 1, name: 'Larisa'},
             {id: 2, name: 'Dmitriy'},
@@ -40,13 +42,34 @@ const state = {
         ]
     }
 }
-export const addNewPost = (postMessage) => {
+export const addNewPost = () => {
     const newPost = {
-        id:8,
-        message: postMessage,
-        likes:0
+        id: 8,
+        message: state.profilePage.newPostText,
+        likes: 0
     };
     state.profilePage.posts.push(newPost)
+    state.profilePage.newPostText = ''
+    rerenderEntireThree(state)
+}
+
+export const updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireThree(state)
+}
+
+export const addNewMessage = () => {
+    const newMessage = {
+        id: 8,
+        message: state.dialogsPage.newMessageText
+    }
+    state.dialogsPage.messages.push(newMessage)
+    state.dialogsPage.newMessageText = ''
+    rerenderEntireThree(state)
+}
+
+export const updateNewMessageText = (newMessage) => {
+    state.dialogsPage.newMessageText = newMessage;
     rerenderEntireThree(state)
 }
 
