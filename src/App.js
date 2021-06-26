@@ -8,15 +8,14 @@ import Settings from "./components/Settings/Settings";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import {Route} from 'react-router-dom';
-import {addNewMessage} from "./redux/state";
-
+// import {addNewMessage} from "./redux/state";
 
 
 const App = (props) => {
 
     // const {addNewPost} = props
     // const {profilePage: {posts}, dialogsPage: {messages, dialogs}, sidebar: {friends}} = props.state
-console.log(props.state.dialogsPage)
+    console.log(props.state.dialogsPage)
     return (
         <div className="app-wrapper">
             <Header/>
@@ -27,10 +26,12 @@ console.log(props.state.dialogsPage)
                 <Route path='/settings' component={Settings}/>
                 <Route path='/news' component={News}/>
                 <Route path='/music' component={Music}/>
-                <Route exact path='/dialogs' render={() => <Dialogs addNewMessage={addNewMessage} dialogs={props.state.dialogsPage.dialogs} updateNewMessageText={props.updateNewMessageText} messages={props.state.dialogsPage.messages}/>}/>
+                <Route exact path='/dialogs'
+                       render={() => <Dialogs dispatch={props.dispatch} dialogs={props.state.dialogsPage.dialogs}
+                                              messages={props.state.dialogsPage.messages}/>}/>
                 <Route path='/profile' render={() => <Profile profilePage={props.state.profilePage}
-                                                              updateNewPostText={props.updateNewPostText}
-                                                              addNewPost={props.addNewPost}/>}/>
+                                                              dispatch={props.dispatch}
+                />}/>
             </div>
         </div>
     );
