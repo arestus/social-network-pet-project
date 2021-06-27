@@ -15,7 +15,6 @@ const App = (props) => {
 
     // const {addNewPost} = props
     // const {profilePage: {posts}, dialogsPage: {messages, dialogs}, sidebar: {friends}} = props.state
-    console.log(props.state.dialogsPage)
     return (
         <div className="app-wrapper">
             <Header/>
